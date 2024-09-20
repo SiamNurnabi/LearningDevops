@@ -1,0 +1,54 @@
+####### Basic commands ########
+echo hi                        # print to screen
+ls                            # list files in directory
+cd                           # change directory
+pwd                          # print working directory
+
+####### Commands - Directories #######
+mkdir                        # make directory
+
+To run multiple commands on a single line, you can use a semicolon (;) to separate the commands.
+For example: cd new_dir; mkdir www; pwd
+
+To run multiple commands sequentially, you can use && to separate the commands.
+For example: cd new_dir && mkdir www && pwd
+
+To create /tmp/asia/bd/dhaka directory, you can use the following command:
+mkdir -p /tmp/asia/bd/dhaka
+
+To remove a directory, you can use the rmdir command.
+For example: rmdir -p /tmp/asia/bd/dhaka or rm -rf /tmp/asia/bd/dhaka
+
+To copy directories, you can use the cp command.
+For example: cp -r /tmp/asia /tmp/asia_backup  // -r is used to copy directories recursively. first path is source and second path is destination
+
+
+####### Commands - Files #######
+
+- touch command
+To create a file.
+For example: touch file.txt
+
+- rm command
+To remove a file.
+For example: rm file.txt
+
+- cat command
+To add content to a file.
+For example: cat > file.txt
+
+- cat command
+To view the content of a file.
+For example: cat file.txt   // without > sign
+
+- cp command
+To copy files.
+For example: cp file.txt file_backup.txt
+
+- mv command
+To move files.
+For example: mv file.txt /tmp
+
+- mv command
+To rename files.
+For example: mv file.txt new_file.txt // first path is source and second path is destination. If destination is not provided, it will rename the file

@@ -1,0 +1,35 @@
+To open a file in vi editor, you can use the following command:
+vi filename
+
+Two modes in vi editor:
+1. Command mode
+2. Insert mode
+
+To switch from command mode to insert mode, you can use the following command:
+- i // to insert text before the cursor
+- esc // to switch back to command mode
+
+######### Commands in command mode: #########
+
+Moving the cursor: arrow keys or h, j, k, l
+
+delete a character: x
+delete a line: dd
+
+copy a line: yy
+paste a line: p
+
+Scroll up/down: ctrl + u / ctrl + d
+
+command : :
+
+save : :w
+Quit : :q
+Save and quit : :wq
+Quit without saving : :q!
+
+To find a word in vi editor, you can use the following command: /word // press n to find next occurrence and N to find previous occurrence
+
+To undo changes in vi editor, you can use the following command: u
+
+To redo changes in vi editor, you can use the following command: ctrl + r

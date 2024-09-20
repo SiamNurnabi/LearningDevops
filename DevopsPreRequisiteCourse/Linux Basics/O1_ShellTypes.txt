@@ -1,0 +1,26 @@
+###### Shell Types ######
+
+Linux systems have both CLI and GUI. The CLI is called the shell.
+The shell is a program that takes commands from the keyboard and gives them to the operating system to perform.
+The text-based command-line interface that helps users to run commands to interact with the operating system is called a shell.
+
+There are different types of shells available in Linux. Some of the popular shells are:
+- Bourne Shell (sh)
+- Bourne Again Shell (bash)
+- C Shell (csh)
+- Korn Shell (ksh)
+- Z Shell (zsh)
+
+Bourne Shell (sh): The Bourne shell is the oldest shell that was developed by Stephen Bourne at AT&T Bell Labs.
+It is the default shell for Unix-based systems. It is a simple shell that is used for scripting.
+It is not as powerful as other shells like bash. It is a good shell for writing scripts.
+
+Bourne Again Shell (bash): The Bourne Again Shell is the most popular shell in Linux. It is an improved version of the Bourne shell.
+It is the default shell for most Linux distributions. It is a powerful shell that is used for scripting and interactive use.
+
+Z Shell (zsh): The Z Shell is an extended version of the Bourne shell with many improvements and additional features.
+It is highly customizable and has many advanced features like spelling correction, shared command history, and more.
+It is a powerful shell that is used by many power users.
+
+To check the current shell, you can use the following command:
+echo $SHELL

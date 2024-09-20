@@ -1,0 +1,96 @@
+
+
+############################## Services ##############################
+
+1. Services are used to start, stop, restart, enable, disable and check the status of services in Linux.
+2. Services are background processes that run continuously to provide specific functionality to the system.
+3. Services can be system services or user services.
+4. System services are managed by the system and are essential for the system to function properly.
+5. User services are managed by users and provide specific functionality based on user requirements.
+6. Services are controlled by init scripts or systemd units.
+7. Init scripts are shell scripts that control the startup and shutdown of services.
+8. Systemd units are configuration files that define how services should be managed by systemd.
+9. Systemd is a system and service manager for Linux that provides better control over services and processes.
+10. Systemd units are stored in the /etc/systemd/system/ directory.
+11. To manage services using systemd, you can use the systemctl command.
+12. The systemctl command provides options like start, stop, restart, enable, disable, and status to manage services.
+
+
+############################## Managing Services ##############################
+
+systemctl command is used to manage services on a systemd-based Linux system.
+Both systemctl and service commands can be used to manage services, but systemctl is the preferred command for managing services on modern Linux distributions.
+
+1. To start a service, use the following command:
+   systemctl start service_name or service service_name start
+   Example: systemctl start apache2
+
+2. To stop a service, use the following command:
+    systemctl stop service_name
+    Example: systemctl stop apache2
+
+3. To restart a service, use the following command:
+    systemctl restart service_name
+    Example: systemctl restart apache2
+
+4. To check the status of a service, use the following command:
+    systemctl status service_name
+    Example: systemctl status apache2
+
+5. To enable a service to start at boot, use the following command:
+    systemctl enable service_name
+    Example: systemctl enable apache2
+
+6. To disable a service from starting at boot, use the following command:
+    systemctl disable service_name
+    Example: systemctl disable apache2
+
+7. To reload the configuration of a service, use the following command:
+    systemctl reload service_name
+    Example: systemctl reload apache2
+
+
+
+############################## Managing Services with Systemd ##############################
+
+1. Systemd is a system and service manager for Linux that provides better control over services and processes.
+2. Systemd units are configuration files that define how services should be managed by systemd.
+3. Systemd units are stored in the /etc/systemd/system/ directory.
+4. Systemd units have a .service extension and contain information about the service, its dependencies, and how it should be managed.
+5. To manage services using systemd, you can use the systemctl command.
+
+
+How to configure a program or software as a service?  Configure the application to automatically start at boot time and restart in case of failure. How to do this?
+The systemctl command-line utility is used to manage systemd services. So we must configure our program as a systemd service. How to do that?
+
+A systemd service is configured using a systemd unit file. These files may be located in /etc/systemd/system/ or /lib/systemd/system/.
+Create a new unit file with the .service extension in the /etc/systemd/system/ directory.
+The unit file should contain the following sections:
+- [Unit]: Contains metadata about the service, such as the description and dependencies.
+- [Service]: Contains information about the service itself, such as the executable path, arguments, and environment variables.
+- [Install]: Contains information about how the service should be started at boot time.
+
+Here is an example of a simple systemd unit file for a service named my_app:
+
+    [Unit]
+    Description=My Application Service          // Specify a description for the service.
+
+    [Sercive]
+    ExecStart=/path/to/my_app               // Specify the command to run the application. This can be a script or binary. Here ExecStart specifies the command to start the service.
+    ExecStartPre=/path/to/pre_script.sh     // Specify a script to run before starting the service.
+    ExecStartPost=/path/to/post_script.sh   // Specify a script to run after starting the service.
+    Restart=always                          // Specify when the service should be restarted. This can be always, on-failure, on-abort, etc.
+    User=my_user                            // Specify the user to run the service as.
+    Group=my_group                          // Specify the group to run the service as.
+    Environment=VAR1=value VAR2=value       // Specify environment variables for the service.
+
+
+    [Install]
+    WantedBy=multi-user.target              // Specify the target that the service should be started with. This can be multi-user.target or graphical.target.
+
+To systemd to recognize the new unit file, run the following command:
+systemctl daemon-reload
+
+To configure the service to automatically start when the system boots, run the following command:
+add install section to the unit file and run the following command:
+systemctl enable my_app

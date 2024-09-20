@@ -1,0 +1,133 @@
+
+                                       #################### Package Management ####################
+
+Package managers are tools that automate the process of installing, upgrading, configuring, and removing software packages.
+This can be done through graphical user interfaces or command-line interfaces. Package managers help to manage dependencies, resolve conflicts, and keep software up-to-date.
+Some popular package managers include:
+- DPKG (Debian Package): Used in Debian-based distributions like Ubuntu.
+- APT (Advanced Package Tool): Used in Debian-based distributions like Ubuntu.
+- RPM (Red Hat Package Manager): Used in Red Hat-based distributions like CentOS.
+- YUM (Yellowdog Updater, Modified): Used in Red Hat-based distributions like CentOS.
+- DNF (Dandified YUM): The next-generation version of YUM used in Fedora.
+- Zypper: Used in openSUSE.
+- Pacman: Used in Arch Linux.
+- Homebrew: Used in macOS.
+- Chocolatey: Used in Windows.
+Package managers use repositories to store software packages. Repositories are collections of software packages that are available for installation.
+Package managers download packages from these repositories and install them on the system. They also manage dependencies by automatically installing the required libraries or packages.
+Package managers can also update software packages to the latest versions available in the repositories. This helps to keep the system secure and up-to-date.
+Some common package management commands include:
+- apt-get update: Updates the package lists for upgrades.
+- apt-get upgrade: Upgrades all installed packages to the latest versions.
+- apt-get install package_name: Installs a package.
+- apt-get remove package_name: Removes a package.
+- apt-cache search search_term: Searches for a package.
+
+
+
+                                        #################### Install, Uninstall, Query ####################
+Install packages using package managers:
+A software is packaged into a bundle with the extension .deb or .rpm. To install the package, use the dpkg command for .deb packages and the rpm command for .rpm packages and the -i flag to install the package.
+For example: dpkg -i package.deb or rpm -i package.rpm
+
+Remove packages using package managers:
+To remove a package, use the dpkg command for .deb packages and the rpm command for .rpm packages and the -e flag to remove the package.
+For example: dpkg -e package.deb or rpm -e package.rpm
+
+Query packages using package managers:
+To query information about a package, use the dpkg command for .deb packages and the rpm command for .rpm packages and the -q flag to query the package.
+For example:
+dpkg -q package.deb or
+rpm -q package.rpm or rpm -qa | grep package_name // To search for a package by name in RPM. The -qa flag lists all installed packages and the grep command filters the output to show only the package you are looking for.
+
+
+
+                                    #################### YUM or APT ####################
+
+
+Rpm requires to point to the exact location where the rpm package is available. It then installs the package in the system.
+For example: rpm -i /path/to/package.rpm
+It does not resolve dependencies automatically. You need to install the dependencies manually.
+
+For example, to install a package named "Ansible" and it has dependencies on "Python" and "SSH", you need to install Python and SSH first before installing Ansible.
+Installing Ansible using RPM command would not take care of the dependencies. To solve this, you can use the "YUM" or "APT" package manager, which resolves dependencies automatically.
+A single command query the package and find its location and dependencies and install them all together.
+
+Yum is a package manager used in Red Hat-based distributions like CentOS. It is a high-level package management tool that automates the process of installing, updating, and removing packages.
+Under the hood, Yum uses RPM (Red Hat Package Manager) to manage packages and APT uses DPKG (Debian Package) to manage packages.
+
+For example, to install a package named "Ansible" using Yum, you can use the following command:
+yum install ansible
+
+Yum searches software repositories for the package and its dependencies and installs them automatically.
+
+
+
+                                    #################### APT Vs Dpkg ####################
+
+APT (Advanced Package Tool) and Dpkg are package management tools used in Debian-based distributions like Ubuntu.
+APT is a high-level package management tool that automates the process of installing, upgrading, and removing packages.
+Dpkg is a low-level package management tool that is used to install, build, remove, and manage packages.
+APT uses Dpkg to install and manage packages. It provides a more user-friendly interface and resolves dependencies automatically.
+Dpkg does not resolve dependencies automatically. It requires the user to install the dependencies manually.
+APT uses repositories to store software packages. Repositories are collections of software packages that are available for installation.
+APT downloads packages from these repositories and installs them on the system. It also manages dependencies by automatically installing the required libraries or packages.
+
+
+#################################### APT vs YUM ####################################
+
+Show the difference between APT and YUM package managers in a table below:
+
+| APT (Advanced Package Tool) | YUM (Yellowdog Updater, Modified) |
+|-----------------------------|-----------------------------------|
+| Used in Debian-based distributions like Ubuntu | Used in Red Hat-based distributions like CentOS |
+| High-level package management tool | High-level package management tool |
+| Automates the process of installing, upgrading, and removing packages | Automates the process of installing, upgrading, and removing packages |
+| Uses Dpkg to manage packages | Uses RPM to manage packages |
+| Resolves dependencies automatically | Resolves dependencies automatically |
+| Uses repositories to store software packages | Uses repositories to store software packages |
+| Downloads packages from repositories and installs them | Downloads packages from repositories and installs them |
+| Manages dependencies by automatically installing required libraries or packages | Manages dependencies by automatically installing required libraries or packages |
+
+
+Note:: How does YUM or APT find where a particular package is located?
+- The information about the repositories is stored in the /etc/apt/sources.list file for APT and in the /etc/yum.repos.d/ directory for YUM.
+These files contain the URLs of the repositories where the packages are located.
+
+
+#################################### YUM repos ####################################
+
+- To see the list of repositories in YUM or APT, you can use the following command:
+yum repolist
+cat /etc/apt/sources.list
+
+- Listing the file under /etc/yum.repos.d/ directory will show the configuration files for the repositories.
+For example:
+ls /etc/yum.repos.d/
+ls /etc/apt/sources.list.d
+
+- To see the details of a specific repository, you can use the following command:
+cat /etc/yum.repos.d/repoid.repo
+cat /etc/apt/sources.list.d/reponame.list
+
+
+- Configure a new repository in YUM or APT:
+To configure a new repository in YUM, using  "yum install package_name" command will automatically search the repositories for the package and install it.
+To configure a new repository in APT, you can add the repository URL to the /etc/apt/sources.list file and then run "apt-get update" to update the package lists.
+
+#################################### YUM or APT ####################################
+
+- To see a list of installed or available packages in YUM or APT, you can use the following commands:
+yum list installed
+apt list --installed
+
+- To see a particular package in YUM or APT, you can use the following commands:
+yum list package_name
+apt list --installed package_name
+
+- To remove packages using YUM or APT, you can use the following commands:
+yum remove package_name
+apt-get remove package_name
+
+- To see duplicate packages in YUM or APT, you can use the following commands:
+yum --showduplicates list package_name

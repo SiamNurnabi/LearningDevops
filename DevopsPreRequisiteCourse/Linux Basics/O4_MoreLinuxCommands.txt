@@ -1,0 +1,44 @@
+
+
+
+############################ User Accounts ############################
+
+- whoami
+Used to display the username of the current user.
+
+- id
+Used to display the user and group information for the current user.
+
+- su
+Used to switch to another user account.
+Example: su username
+
+- ssh
+Used to connect to a remote server using the Secure Shell protocol. It allows users to log in to a remote machine and execute commands on that machine.
+Example: ssh username@hostname
+
+- sudo
+Used to execute a command as another user, typically the root user. It allows a permitted user to execute a command as the superuser or another user, as specified by the security policy.
+The sudo command is designed to allow users to run programs with the security privileges of another user, by default the root user.
+
+
+
+
+############################ Downloading Files ############################
+
+- curl
+Used to transfer data from or to a server. It supports a wide range of protocols like HTTP, HTTPS, FTP, FTPS, SFTP, and more.
+Example: curl -O http://example.com/file.txt // Downloads the file.txt from the specified URL. The -O option saves the file with the same name as the remote file.
+
+- wget
+Used to download files from the web. It supports HTTP, HTTPS, and FTP protocols.
+Example: wget http://example.com/file.txt -O newFile.txt // Downloads the file.txt from the specified URL and saves it as newFile.txt.
+
+
+
+############################ Check OS Version ############################
+
+- ls /etc/*release*              // Here * is a wildcard character. This command will list the release files in the /etc directory.
+Used to list the release files in the /etc directory. These files contain information about the operating system version and distribution.
+
+- cat /etc/*release*             // Here * is a wildcard character. This command will display the contents of the release files in the /etc directory.
